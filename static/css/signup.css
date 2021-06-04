@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:500");
+
+:root {
+    --body-font: "Poppins", sans-serif;
+    --big-font-size: 2rem;
+    --h2-font-size: 1.5rem;
+    --nomral-font-size: 0.938rem;
+    --first-color: #4070f4;
+    --second-color: #0e2431;
+    --gardient-color: linear-gradient(to right, #5001fb, #8e0af3);
+}
+:root {
+    --header-height: 3rem;
+}
+
+
+*,::before,::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+li,h1, a, button{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    /* font-size: 20px; */
+    color: #0d0d0e;
+    text-decoration: none;
+}
+
+.main {
+    width: 36em;
+    height: 42em;
+    background: #f5f6f8;
+    display: flex;
+    justify-content: center;
+    margin: 5em 0em;
+    padding: 0em 0em;
+}
+.main{
+    border-radius: 3rem;
+    box-shadow: 0px 0px 31px 1px #726e6e69;
+}
+.hdr h1{
+    font-size:4vh;
+    margin: 0rem 8rem;
+}
+.hdr{
+    /* background: red; */
+    height: 5em;
+    width: 100%;
+    /* align-items: center; */
+    margin: 2rem 10rem;
+}
+.inp-grd {
+    width: 35rem;
+    height: 30rem;
+    margin: 5rem 0;
+}
+
+.inp-grp, .submit-btn, .errorlist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0rem;
+    
+
+}
+
+.inp-grp input{
+    width: 75%;
+    height: 50px;
+    /* border-bottom: 1px solid black; */
+    background: transparent;
+    font-size: 2vh;
+    font-size: max(2vh, 1vh);
+    font-family: "Montserrat", sans-serif;
+    padding: 0px 10px;
+}
+
+input::placeholder{
+    font-size: 2vh;
+    opacity: .5;
+   
+}
+
+.inp-grp-txt i {
+    font-size: 3vh;
+    opacity: .5;
+    margin: .5rem 1rem;
+}
+
+.inp-grp-app {
+    height: 48px;
+    width: 60px;
+    /* background: aquamarine; */
+} 
+
+/* .btn-p{
+
+    height: 3em;
+}
+.btnn {
+    
+    height: 100%;
+} */
+
+.btn-p input{ 
+    width: 6em;
+    font-size: 3vh;
+    font-weight: 900;
+    font-family: "Montserrat", sans-serif;
+    border: none;
+    border-radius: 5px;
+    background: #ec540daf;
+    cursor: pointer;
+}
+.ug:hover i{
+    color: violet;
+}
+
+.eg:hover i{
+    color: blueviolet
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7em;
+    /* background: red; */
+}
+
+.login p, a{
+    font-size: 2vh;
+    font-family: "Montserrat", sans-serif;
+    margin: 0em 0em;
+}
+hr{    
+    margin: 1rem 0rem;
+    opacity: .5;
+}
+.login a {
+    margin: 0em .5em;
+}
+
+
+#warn {
+    position: absolute;
+    top: 35px;
+}

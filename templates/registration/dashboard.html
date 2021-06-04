@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}{{request.user}} Dashboard {% endblock %}
+
+{% block content %}
+        <div class="menu" id="child-2">
+            <div class="nav-box">
+                <ul class="navbar-nav">
+                    <li>
+                        
+                            <a href="#profile-form"><i class="fas fa-male"></i>Profile</a>
+                       
+                        
+                    </li>
+                    <li>
+                       
+                            <a href="#survey-form"><i class="fas fa-poll-h"></i>Survey</a>
+                       
+                        
+                    </li>
+                    <li>
+                       
+                            <a href="#history-form"><i class="fas fa-history"></i>History</a>
+                        
+                       
+                    </li>
+                    
+
+                </ul>
+            </div>
+        </div>
+        <div class="content" id="child-1">
+            <div id="profile-form" class="dashtst">
+                <div class="profile-page">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="inp-grp">
+                            <!-- <span>User Name</span> -->
+                            <input 
+                                type="text" 
+                                name="{{request.user}}" 
+                                placeholder="{{request.user}}"
+                                disabled
+                            ><br>
+                            <!-- <span>User Email</span> -->
+                            <input 
+                                type="text" 
+                                name="{{request.user.firstname}}" 
+                                placeholder="First Name"
+                                
+                            ><br>
+                            <input 
+                                type="text" 
+                                name="{{request.user.lastname}}" 
+                                placeholder="Last Name"
+                                
+                            ><br>
+                            <input 
+                                type="text" 
+                                name="{{request.user.email}}" 
+                                placeholder="{{request.user.email}}"
+                                disabled
+                            >
+                            <!-- <span>About Me</span> -->
+                            <textarea placeholder="About Me" type="text" name="About_me" id="about-me"></textarea>
+                            <button type="button" class="profile-save">
+                                Save
+                            </button>
+                        </div>
+                       
+                    </form>
+                </div>
+            </div>
+            <div id="survey-form" class="dashtst">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="inp-grp">
+                        <select name="Institutes" id="ins">        
+                            <option class="inst-val" value="{{forms.institute}}"></option>
+                        </select>
+                        
+                    </div>
+                    <div>
+                        <span>Rate th institue.</span>
+                        {{forms.srvy_rating}}
+                    </div>
+                    <div>
+                        <span>
+                            Describe your Rating.
+                        </span>
+                        {{forms.srvy_desc}}
+                    </div>
+                    <div>
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div id="history-form" class="dashtst">
+                
+            </div>
+        </div>
+        <div class="footer" id="child-2">footer</div>
+
+{% endblock %}

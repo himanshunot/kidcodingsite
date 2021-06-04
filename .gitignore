@@ -1,0 +1,7 @@
+db.sqlite3
+
+
+# static
+
+static/css/profile.scss
+static/css/profile.css.map

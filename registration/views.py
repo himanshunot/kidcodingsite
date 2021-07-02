@@ -55,11 +55,15 @@ def signup(request):
 @login_required(login_url='login')
 # class dashboard(View):
 def dashboard(request):
-    inst_name = AddInstitute.objects.all()
-    forms = surveyform(request.POST)
+    forms = surveyform()
     if request.method == 'POST':
+        forms = surveyform(request.POST)
         if forms.is_valid():
-            forms.save()
-
-    context= {'forms':forms}
+            f = forms.save(commit=False)
+            f.user = request.user
+            f.save()
+            messages.success(request,"rating added update")
+        else:
+            messages.error(request,f"some error occurred {forms.errors}")
+    context= {'form2':forms}
     return render(request,'registration/dashboard.html', context)

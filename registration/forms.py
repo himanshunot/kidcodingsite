@@ -11,9 +11,14 @@ class registrationForm(UserCreationForm):
         fields = ['username','email','password1','password2']
 
 class surveyform(forms.ModelForm):
+    
+    def __init__(self, *args, **kwargs):
+        super(surveyform, self).__init__(*args, **kwargs)
+        self.fields['srvy_rating'].widget.attrs['min'] = 1
+        self.fields['srvy_rating'].widget.attrs['max'] = 10
     class Meta:
         srvy_rating = forms.IntegerField()
         srvy_desc = forms.CharField()
         
         model = SurveyModel
-        fields = "__all__"
+        fields = ('institute','srvy_rating','srvy_desc',)

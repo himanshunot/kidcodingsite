@@ -8,4 +8,4 @@ class addinstitute(admin.ModelAdmin):
 
 @admin.register(SurveyModel)
 class survey(admin.ModelAdmin):
-    list_display = ('institute','srvy_rating')
+    list_display = ('institute','srvy_rating','user')

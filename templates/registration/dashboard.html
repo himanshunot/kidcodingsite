@@ -1,104 +1,43 @@
 {% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %}{{request.user}} Dashboard {% endblock %}
 
 {% block content %}
-        <div class="menu" id="child-2">
-            <div class="nav-box">
-                <ul class="navbar-nav">
-                    <li>
-                        
-                            <a href="#profile-form"><i class="fas fa-male"></i>Profile</a>
-                       
-                        
-                    </li>
-                    <li>
-                       
-                            <a href="#survey-form"><i class="fas fa-poll-h"></i>Survey</a>
-                       
-                        
-                    </li>
-                    <li>
-                       
-                            <a href="#history-form"><i class="fas fa-history"></i>History</a>
-                        
-                       
-                    </li>
-                    
+<div class="menu">
+    
+    <ul class="nav bg-dark nav-dark">
+        <li class="nav-item">
+            <a class="nav-link" href="#profile-form">Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#survey-form">Survey</a>
+        </li>
+    </ul>
+</div>
 
-                </ul>
-            </div>
-        </div>
-        <div class="content" id="child-1">
-            <div id="profile-form" class="dashtst">
+<hr>
+<section class="container " style="height: 80vh;">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div id="profile-form" class="dashtst my-3">
                 <div class="profile-page">
-                    <form method="POST" action="">
+                    <h1>Give Rating to Coding website </h1>
+                    <form method="POST" name="form1">
                         {% csrf_token %}
-                        <div class="inp-grp">
-                            <!-- <span>User Name</span> -->
-                            <input 
-                                type="text" 
-                                name="{{request.user}}" 
-                                placeholder="{{request.user}}"
-                                disabled
-                            ><br>
-                            <!-- <span>User Email</span> -->
-                            <input 
-                                type="text" 
-                                name="{{request.user.firstname}}" 
-                                placeholder="First Name"
-                                
-                            ><br>
-                            <input 
-                                type="text" 
-                                name="{{request.user.lastname}}" 
-                                placeholder="Last Name"
-                                
-                            ><br>
-                            <input 
-                                type="text" 
-                                name="{{request.user.email}}" 
-                                placeholder="{{request.user.email}}"
-                                disabled
-                            >
-                            <!-- <span>About Me</span> -->
-                            <textarea placeholder="About Me" type="text" name="About_me" id="about-me"></textarea>
-                            <button type="button" class="profile-save">
-                                Save
-                            </button>
-                        </div>
-                       
-                    </form>
-                </div>
-            </div>
-            <div id="survey-form" class="dashtst">
-                <form method="POST" action="">
-                    {% csrf_token %}
-                    <div class="inp-grp">
-                        <select name="Institutes" id="ins">        
-                            <option class="inst-val" value="{{forms.institute}}"></option>
-                        </select>
-                        
-                    </div>
-                    <div>
-                        <span>Rate th institue.</span>
-                        {{forms.srvy_rating}}
-                    </div>
-                    <div>
-                        <span>
-                            Describe your Rating.
-                        </span>
-                        {{forms.srvy_desc}}
-                    </div>
-                    <div>
-                        <button type="submit" class="btn-submit">Submit</button>
+                        {{form2|crispy}}
+                        <button class="profile-save btn btn-primary btn-sm">
+                            Save
+                        </button>
                     </div>
                 </form>
             </div>
-            <div id="history-form" class="dashtst">
-                
-            </div>
         </div>
-        <div class="footer" id="child-2">footer</div>
+    </div>
+</div>
+</section>
+
+
 
 {% endblock %}

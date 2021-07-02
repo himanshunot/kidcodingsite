@@ -24,11 +24,12 @@ from registration import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',raview.home.as_view(),name='homee'),
     path('user/login', views.login, name='login'),
     path('user/signup',views.signup, name='signup'),
     path('user/logout',views.logoutuser, name='logout'),
-    path('dashboard/',views.dashboard, name='dashboard')
+    path('dashboard/',views.dashboard, name='dashboard'),
+    path('', raview.line_chart, name='home'),
+    path('chartJSON/', raview.line_chart_json, name='line_chart_json'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

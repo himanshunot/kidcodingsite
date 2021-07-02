@@ -8,6 +8,9 @@ from django.contrib.auth import authenticate
 from django.contrib import messages         # to show flash messages
 from django.views.generic import View
 from .models import AddInstitute
+from django.views.generic import TemplateView
+from chartjs.views.lines import BaseLineChartView
+
 # Create your views here.
 def login(request):
     if request.user.is_authenticated:
@@ -22,8 +25,6 @@ def login(request):
                 return redirect('dashboard')
             else:
                 messages.info(request,' Username or Password is wrong.')
-            
-
     context = {}
     return render(request,'registration/login.html', context)
 
